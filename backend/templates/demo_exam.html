@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Proctor - Demo Exam</title>
+  <style>
+    :root {
+      --primary-color: #ecad1a;
+      --secondary-color: #4cca61;
+      --accent-color: #00d2ff;
+      --background-color: #263f65;
+      --text-color: #2c5043;
+      --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      --card-bg: white;
+      --border-radius: 12px;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--background-color) 0%, #e0e6ed 100%);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 700px;
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary-color);
+      font-size: 28px;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: all 0.3s;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--secondary-color);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(93, 156, 236, 0.2);
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      box-shadow: 0 4px 6px rgba(58, 123, 213, 0.2);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 10px rgba(58, 123, 213, 0.3);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.3s;
+      margin-top: 15px;
+      justify-content: center;
+      width: 100%;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background-color: rgba(93, 156, 236, 0.1);
+    }
+
+    .back-link:hover {
+      background-color: rgba(43, 231, 59, 0.937);
+      color: var(--primary-color);
+    }
+
+    .tech-decoration {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,210,255,0.03) 0%, rgba(58,123,213,0.01) 70%, transparent 100%);
+      z-index: -1;
+    }
+
+    .tech-decoration.top-right {
+      top: -150px;
+      right: -150px;
+    }
+
+    .tech-decoration.bottom-left {
+      bottom: -150px;
+      left: -150px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: 90%;
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="tech-decoration top-right"></div>
+  <div class="tech-decoration bottom-left"></div>
+
+  <div class="container">
+    <h1>Demo Exam</h1>
+    <form id="examForm">
+      <div class="question">
+        <label>1. What is 2 + 2?</label>
+        <input type="text" name="q1">
+      </div>
+      <div class="question">
+        <label>2. Capital of India?</label>
+        <input type="text" name="q2">
+      </div>
+      <div class="question">
+        <label>3. Programming language used for AI Proctor?</label>
+        <input type="text" name="q3">
+      </div>
+      <div class="question">
+        <label>4. Who is the main character in RDR2?</label>
+        <input type="text" name="q4">
+      </div>
+      <div class="question">
+        <label>5. What is the reason Arthur Morgan died?</label>
+        <input type="text" name="q5">
+      </div>
+      <button type="submit">Submit Exam</button>
+    </form>
+
+  </div>
+
+  <script>
+    document.getElementById("examForm").onsubmit = function(e){
+      e.preventDefault();
+      alert("Exam submitted successfully!");
+      window.location.href = "/";
+    }
+  </script>
+</body>
+</html>
